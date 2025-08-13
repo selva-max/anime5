@@ -1,0 +1,151 @@
+/* Background - Cyberpunk gradient */
+body {
+  background: linear-gradient(270deg, #0f0c29, #302b63, #24243e, #6a0572);
+  background-size: 800% 800%;
+  animation: bg-move 12s ease infinite;
+  font-family: sans-serif;
+}
+@keyframes bg-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.main {
+  height: 500px;
+  width: 500px;
+  margin: auto;
+  margin-top: 35%;
+  background-color: transparent;
+}
+
+/* Face */
+.face {
+  height: 120px;
+  width: 110px;
+  background: radial-gradient(circle at 30% 30%, #7a00ff, #bc13fe, #ff00ff);
+  display: flex;
+  border-radius: 50%;
+  margin-top: 70px;
+  margin-left: 190px;
+  position: relative;
+  box-shadow: 0 0 25px rgba(255,0,255,0.8);
+  animation: changeface 3s infinite ease-in-out;
+}
+@keyframes changeface {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+/* Eyes */
+.leye, .reye {
+  height: 14px;
+  width: 14px;
+  background: #00fff2;
+  border-radius: 50%;
+  animation: blink 3s infinite;
+}
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+.eyes {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 21px;
+  gap: 45px;
+  margin-top: 50px;
+}
+
+/* Mouth - Curved neon cyan smile */
+.mouth {
+  width: 60px;
+  height: 30px;
+  border-bottom: 4px solid #00fff2;
+  border-radius: 0 0 50px 50px;
+  margin-top: 20px;
+  margin-left: -105px;
+  box-shadow: 0 0 15px #00fff2;
+  animation: smile-glow 2s linear infinite;
+}
+@keyframes smile-glow {
+  0%,100% { box-shadow: 0 0 10px #00fff2; border-bottom-color: #00fff2; }
+  50% { box-shadow: 0 0 20px #66fff9; border-bottom-color: #66fff9; }
+}
+
+/* Body - Hexagon with purple tones */
+.body {
+  width: 140px;
+  height: 160px;
+  background: linear-gradient(145deg, #6a00f4, #b517ff, #ff5bf1);
+  position: relative;
+  margin-left: 180px;
+  margin-top: 5px;
+  box-shadow: 0 0 20px rgba(255,0,255,0.7), inset -3px -3px 6px rgba(255,255,255,0.3);
+  clip-path: polygon(
+    25% 0%, 75% 0%, 
+    100% 50%, 75% 100%, 
+    25% 100%, 0% 50%
+  );
+  animation: breathe 3s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Hands - Neon pink metal */
+.lhand, .rhand {
+  height: 80px;
+  width: 22px;
+  background: linear-gradient(145deg, #ff0077, #ff4fd8, #ff91e0);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: inset -3px -3px 6px rgba(255,255,255,0.4),
+              inset 3px 3px 6px rgba(0,0,0,0.3);
+}
+.lhand::after, .rhand::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #00fff2, #005f5a);
+  border-radius: 50%;
+  box-shadow: inset -2px -2px 4px rgba(0,0,0,0.3);
+}
+
+/* Legs - Metallic cyan boots */
+.lleg, .rleg {
+  height: 80px;
+  width: 24px;
+  background: linear-gradient(145deg, #00fff2, #00bfb4, #007f7a);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: inset -3px -3px 6px rgba(255,255,255,0.4),
+              inset 3px 3px 6px rgba(0,0,0,0.3);
+}
+.lleg::after, .rleg::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 14px;
+  background: linear-gradient(#6600ff, #330066);
+  border-radius: 5px;
+}
+
+/* Position & Animation */
+.lhand { margin-left: 164px; margin-top: -130px; animation: changelhand 0.9s infinite ease-in-out; transform-origin: top center; }
+.rhand { margin-left: 305px; margin-top: -80px; animation: changerhand 0.9s infinite ease-in-out; transform-origin: top center; }
+.lleg  { margin-left: 200px; margin-top: 50px; animation: changerlleg 0.9s infinite ease-in-out; transform-origin: top center; }
+.rleg  { margin-top: -79px; margin-left: 268px; animation: changerrleg 0.9s infinite ease-in-out; transform-origin: top center; }
+
+@keyframes changelhand { 0%{transform:rotate(0deg);} 25%{transform:rotate(45deg);} 50%{transform:rotate(-45deg);} 100%{transform:rotate(0deg);} }
+@keyframes changerhand { 0%{transform:rotate(0deg);} 25%{transform:rotate(-45deg);} 50%{transform:rotate(45deg);} 100%{transform:rotate(0deg);} }
+@keyframes changerlleg  { 0%{transform:rotate(0deg);} 25%{transform:rotate(-45deg);} 50%{transform:rotate(45deg);} 100%{transform:rotate(0deg);} }
+@keyframes changerrleg  { 0%{transform:rotate(0deg);} 25%{transform:rotate(45deg);} 50%{transform:rotate(-45deg);} 100%{transform:rotate(0deg);} }
